@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="post-meta">
+  <a href="{{ "" | relURL }}" aria-label="Back home">&lt;-</a>
+  {{ if not .Date.IsZero }}<p><time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006-01-02" }}</time></p>{{ end }}
+</div>
+<article>
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  {{ if eq .Section "posts" }}
+  <footer class="post-elsewhere">
+    <p><strong>Follow me elsewhere:</strong> {{ partial "elsewhere.html" . }}.</p>
+  </footer>
+  {{ end }}
+</article>
+{{ end }}

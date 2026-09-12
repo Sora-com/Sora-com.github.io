@@ -1,0 +1,6 @@
+{{- range site.Params.elsewhere -}}
+<a href="{{ .url }}" rel="me">{{ .name }}</a>,{{ " " }}
+{{- end -}}
+{{- with site.Home.OutputFormats.Get "rss" -}}
+<a href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml">rss</a>
+{{- end -}}

@@ -1,0 +1,72 @@
+{{- $current := . -}}
+{{- $others := slice -}}
+{{- range where site.RegularPages "Section" "posts" -}}
+  {{- if ne .RelPermalink $current.RelPermalink }}{{ $others = $others | append . }}{{ end -}}
+{{- end -}}
+{{- $others = first 16 $others -}}
+
+{{- $left := slice -}}
+{{- $right := slice -}}
+{{- range $i, $p := $others -}}
+  {{- if eq (mod $i 2) 0 }}{{ $left = $left | append $p }}{{ else }}{{ $right = $right | append $p }}{{ end -}}
+{{- end -}}
+
+<svg class="sky-defs" aria-hidden="true" width="0" height="0">
+  <defs>
+    <filter id="goo" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4.5" result="blur" />
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -9" />
+    </filter>
+  </defs>
+</svg>
+
+<nav class="sky" aria-label="Sections and other notes">
+  {{- range $side, $stars := dict "left" $left "right" $right }}
+  <div class="stars stars--{{ $side }}">
+    {{- $salt := cond (eq $side "left") 0 29 -}}
+    {{- if eq $side "left" }}
+    <a class="star star--section" href="{{ "about/" | relURL }}" style="{{ "--x:18%;--y:33%" | safeCSS }}"><span class="star__title">About</span></a>
+    <a class="star star--section" href="{{ "posts/" | relURL }}" style="{{ "--x:12%;--y:76%" | safeCSS }}"><span class="star__title">All notes</span></a>
+    {{- end }}
+    {{- range $i, $p := $stars }}
+      {{- $x := add 8 (mod (add (mul $i 53) $salt 17) 84) -}}
+      {{- $y := add 6 (mul $i 11) (mod (add (mul $i 7) $salt) 5) -}}
+    <a class="star" href="{{ $p.RelPermalink }}" style="{{ printf "--x:%d%%;--y:%d%%" $x $y | safeCSS }}"><span class="star__title">{{ $p.Title }}</span></a>
+    {{- end }}
+    {{- range $i := seq 0 13 }}
+      {{- $x := mod (add (mul $i 37) (mul $salt 3) 11) 97 -}}
+      {{- $y := mod (add (mul $i 61) $salt 23) 97 -}}
+    <span class="dust" aria-hidden="true" style="{{ printf "--x:%d%%;--y:%d%%;--d:%ds" $x $y (add 3 (mod $i 5)) | safeCSS }}"></span>
+    {{- end }}
+  </div>
+  {{- end }}
+</nav>
+
+<div class="orb orb--home">
+  <svg viewBox="0 0 80 80" aria-hidden="true" focusable="false">
+    <g filter="url(#goo)">
+      <circle class="orb__main" cx="40" cy="40" r="30" />
+      <circle class="orb__bud" cx="82" cy="40" r="18" style="{{ "--from-x:-42px;--from-y:0px" | safeCSS }}" />
+    </g>
+  </svg>
+  <a class="orb__hit" href="{{ "" | relURL }}" aria-label="Home"></a>
+  <div class="orb__links">
+    <a href="{{ "" | relURL }}" style="{{ "--cx:82;--cy:40;--r:18" | safeCSS }}" tabindex="-1">home</a>
+  </div>
+</div>
+
+<div class="orb orb--reading" data-reading>
+  <svg viewBox="0 0 80 80" aria-hidden="true" focusable="false">
+    <g filter="url(#goo)">
+      <circle class="orb__main" cx="40" cy="40" r="34" />
+      <circle class="orb__bud" cx="-4" cy="14" r="18" style="{{ "--from-x:44px;--from-y:26px" | safeCSS }}" />
+      <circle class="orb__bud" cx="-4" cy="66" r="18" style="{{ "--from-x:44px;--from-y:-26px" | safeCSS }}" />
+    </g>
+  </svg>
+  <button class="orb__hit" type="button" aria-label="Reading navigation" aria-expanded="false"></button>
+  <span class="orb__left" data-reading-left aria-hidden="true">100% left</span>
+  <nav class="orb__links" aria-label="Jump within page">
+    <a href="#page-top" style="{{ "--cx:-4;--cy:14;--r:18" | safeCSS }}">top</a>
+    <a href="#page-bottom" style="{{ "--cx:-4;--cy:66;--r:18" | safeCSS }}">end</a>
+  </nav>
+</div>

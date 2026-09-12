@@ -1,0 +1,35 @@
+{{ define "main" }}
+<header class="h-card">
+  {{ with site.Params.avatar }}
+  <img class="site-photo" src="{{ . | relURL }}" alt="{{ site.Params.author }}" width="96" height="96">
+  {{ end }}
+  <h1>Hi, I'm {{ site.Params.author }}</h1>
+  <p>{{ site.Params.description }}</p>
+</header>
+
+{{ .Content }}
+
+<h2>Stuff you can read here:</h2>
+<ul>
+  <li>info
+    <ul>
+      {{ range site.Params.info }}<li>{{ . }}</li>{{ end }}
+      <li><a href="{{ "about/" | relURL }}">about</a></li>
+    </ul>
+  </li>
+  <li>notes
+    <ul>
+      {{ range first (site.Params.homeNotes | default 5) (where site.RegularPages "Section" "posts") }}
+      <li><span class="date">{{ .Date.Format "2006-01-02" }}</span> <a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ end }}
+      <li><a href="{{ "posts/" | relURL }}">See all notes...</a></li>
+    </ul>
+  </li>
+  <li>elsewhere
+    <ul>
+      {{ range site.Params.elsewhere }}<li><a href="{{ .url }}" rel="me">{{ .name }}</a></li>{{ end }}
+      {{ with site.Home.OutputFormats.Get "rss" }}<li><a href="{{ .RelPermalink }}">rss</a></li>{{ end }}
+    </ul>
+  </li>
+</ul>
+{{ end }}

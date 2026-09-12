@@ -1,0 +1,27 @@
+baseURL = "http://localhost:1313/"
+locale = "en-US"
+title = "my small corner"
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  author = "Alice"
+  description = "This is my small corner of the internet."
+  avatar = "images/avatar.svg"
+  theme = "auto"
+  homeNotes = 5
+  info = [
+    "notes, half-baked ideas and things I'm learning.",
+    "nothing here is final.",
+  ]
+  [[params.elsewhere]]
+    name = "github"
+    url = "https://github.com/Sora-com"
+
+[permalinks]
+  posts = "/posts/:slug/"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.highlight]
+  noClasses = false

@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="post-meta">
+  <a href="{{ "" | relURL }}" aria-label="Back home">&lt;-</a>
+</div>
+<h1>{{ if eq .Section "posts" }}All notes{{ else }}{{ .Title }}{{ end }}</h1>
+{{ .Content }}
+{{ range .Pages.GroupByDate "2006" }}
+<h2>{{ .Key }}</h2>
+<ul class="note-list">
+  {{ range .Pages }}
+  <li><span class="date">{{ .Date.Format "01-02" }}</span> <a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+  {{ end }}
+</ul>
+{{ end }}
+{{ end }}

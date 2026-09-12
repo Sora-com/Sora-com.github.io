@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.Locale }}" data-theme="{{ site.Params.theme | default "auto" }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body id="page-top">
+  {{ partial "sky.html" . }}
+  <main class="page-content" aria-label="Content">
+    <div class="w">
+      {{ block "main" . }}{{ end }}
+    </div>
+  </main>
+  <div id="page-bottom" aria-hidden="true"></div>
+  {{ with resources.Get "js/sky.js" | minify | fingerprint }}
+  <script defer src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}"></script>
+  {{ end }}
+</body>
+</html>

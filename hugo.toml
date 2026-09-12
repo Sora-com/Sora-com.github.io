@@ -1,11 +1,11 @@
 baseURL = "http://localhost:1313/"
 locale = "en-US"
-title = "my small corner"
+title = "notebook"
 disableKinds = ["taxonomy", "term"]
 
 [params]
   author = "Alice"
-  description = "This is my small corner of the internet."
+  description = "this is a place for me to write about the things I think about"
   avatar = "images/avatar.svg"
   theme = "auto"
   homeNotes = 5

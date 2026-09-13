@@ -10,7 +10,7 @@ I often dwell on the characteristics that make a person and, if one's developmen
 I am aware that one's environment says quite nearly all you must know about someone. That's why there are plenty of innocent people in prison because of their circumstances. If you learned that someone was murdered, and the two suspects were an ex-alcoholic man with a past involving drugs and a history of violence, and a clean, responsible man coming from a well-structured home, you would probably think it was the first. 
 
 Can you escape your environment? Yes. 
-It is undoubtedly hard. But I believe that the key to living happily, and free from the chains of where you were born, is to be **self-conscious** and **self-loved**, and *that* is what I mean by self-reliance, and that's how you will never be alone. 
+It is undoubtedly hard. But I believe that the key to living happily, and free from the chains of where you were born, is to be **self-aware** and **self-loved**, and *that* is what I mean by self-reliance, and that's how you will never be alone. 
 
 # Be aware and expose yourself
 
@@ -23,7 +23,7 @@ It is important to note that you mustn't stay with the values you see are popula
 You will never see what is wrong with your environment if you never look outside the window. Be enthusiastic about learning the many different ways people form families and households. 
 This will teach you to recognise the distinct behaviours of your household and make you conscious when you eventually show them as well, and thus you will be able to **freely** choose whether you wish to continue with those values or not. That is where freedom comes from. Freedom comes from becoming what you've always wished to become. 
 
-We are human, and as humans we learn from our company. It is unavoidable. However, with this in mind, we can teach ourselves to be **self-conscious**, and critical, and thus, have the skills to choose for ourselves. 
+We are human, and as humans we learn from our company. It is unavoidable. However, with this in mind, we can teach ourselves to be **self-aware**, and critical, and thus, have the skills to choose for ourselves. 
 
 # Choose your environment 
 
